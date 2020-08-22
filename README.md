@@ -9,3 +9,4 @@
 * [chain of responsibilty](https://github.com/ahmedsamir9/DesignPatternsInkotlin-/tree/master/src/chainOfResponubilty)
 * [momento](https://github.com/ahmedsamir9/DesignPatternsInkotlin-/tree/master/src/momento)
 * [Strategy](https://github.com/ahmedsamir9/SortingAlgorithms-in-kotlin)
+### stay tunned for upcoming patterns
