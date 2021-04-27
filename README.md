@@ -3,17 +3,61 @@
  
 # Patterns :
 ## Creational:
+> are design patterns that deal with object creation mechanisms, trying to create objects in a manner suitable to the situation
 * [Builder](https://github.com/ahmedsamir9/DesignPatternsInkotlin-/tree/master/src/Builder)
-* [Factory](https://github.com/ahmedsamir9/DesignPatternsInkotlin-/tree/master/src/Factory)
-* [protoype](https://github.com/ahmedsamir9/DesignPatternsInkotlin-/tree/master/src/Protoype)
+> Builder is a creational design pattern that lets you construct complex objects step by step. The pattern allows you to produce different types and representations of an object using the same construction code.
+1. builder interface 
+```kotlin
+interface UserBuilder {
+    fun setName(_name:String):UserBuilder
+    fun setAddress (_Address:String):UserBuilder
+    fun setAge (_age:Int):UserBuilder
+    fun setPhone (_phone:String):UserBuilder
+    fun build():User
+}
+```
+2. User Class 
+``` kotlin
+data class User (val name  : String? ,val age :Int? , val address:String?,val phone :String?) {}
+```
+3. User builder
+```kotlin
+ class UserBuilderImpl :UserBuilder {
+    private var name  : String? =null
+     private var age :Int? = null
+     private  var address:String? = null
+     private var phone :String? = null
+        override fun setName(_name: String): UserBuilder {
+            this.name =_name
+            return this
+        }
 
-## Structural: 
+        override fun setAddress(_Address: String): UserBuilder {
+            this.address =_Address
+            return this
+        }
 
-## Behavioral: 
-* [state](https://github.com/ahmedsamir9/DesignPatternsInkotlin-/tree/master/src/State)
-* [vistor](https://github.com/ahmedsamir9/DesignPatternsInkotlin-/tree/master/src/vistor)
-* [chain of responsibilty](https://github.com/ahmedsamir9/DesignPatternsInkotlin-/tree/master/src/chainOfResponubilty)
-* [momento](https://github.com/ahmedsamir9/DesignPatternsInkotlin-/tree/master/src/momento)
-* [Strategy](https://github.com/ahmedsamir9/SortingAlgorithms-in-kotlin)
+        override fun setAge(_age: Int): UserBuilder {
+            this.age =_age
+            return this
+        }
 
-### stay tunned for upcoming patterns
+        override fun setPhone(_phone: String): UserBuilder {
+            this.phone=_phone
+            return this
+        }
+
+        override fun build(): User {
+           return User(this.name, this.age, this.address, this.phone)
+        }
+    }
+```
+4. Using code in main 
+```kotlin 
+fun main(){
+    val user =UserBuilderImpl().setName("ahmed")
+            .setAge(15).build()
+        print(user.toString())
+}
+```
+
