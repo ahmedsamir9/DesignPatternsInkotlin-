@@ -1,5 +1,7 @@
 # Design Patterns In Kotlin
 > Samples of design patterns in Kotlin.
+
+> Defination : Gneral and reusable solution to common problems in software design (Not algorithm)
  
 # Patterns :
 ## Creational:
