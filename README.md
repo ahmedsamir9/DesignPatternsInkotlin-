@@ -73,3 +73,51 @@ fun main(){
 }
 ```
 
+* ### [Prototype](https://github.com/ahmedsamir9/DesignPatternsInkotlin-/tree/master/src/Protoype)
+> Prototype is a creational design pattern that lets you copy existing objects without making your code dependent on their classes (Clonning)
+
+=> Uml : 
+
+<img  src="/umls/prototype.png">
+1. First Prototype
+
+``` kotlin
+ class FirstSuit :Cloneable {
+    var name = "XR8"
+    fun properties(){
+        println("flying")
+    }
+
+     public override fun clone(): FirstSuit {
+         return super.clone()as FirstSuit
+     }
+ }
+```
+2. Second Prototype
+
+```kotlin
+ class SecondSuit:Cloneable {
+
+    fun properties(){
+        print("can dive")
+    }
+
+    public override fun clone(): SecondSuit {
+        return super.clone() as SecondSuit
+    }
+}
+```
+3. Using code in main 
+```kotlin 
+fun main(){
+    val firstSuit = FirstSuit()
+    firstSuit.name = "LL1"
+    val firstSuitClone = firstSuit.clone()
+    println(firstSuitClone.name)
+    val secondSuit = SecondSuit()
+    val secondSuitCloneable = secondSuit.clone()
+    secondSuitCloneable.properties()
+
+}
+```
+
